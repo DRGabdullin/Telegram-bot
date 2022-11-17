@@ -46,9 +46,10 @@ def get_text_messages(message):
     if message.text == "Привет":
         bot.send_message(message.from_user.id, "Привет! Это телеграм-бот регистрации"
                                                "\n/help - помощь"
-                                               "\n/start - начало работы")
+                                               "\n/start - начало работы"
+                                               "\n/weather - показать погоду")
     elif message.text == '/help':
-        bot.send_message(message.from_user.id, "Напиши /start")
+        bot.send_message(message.from_user.id, "Напиши /start или /weather")
     elif message.text == '/start':
         msg = bot.send_message(message.chat.id, "Введите имя")
         bot.register_next_step_handler(msg, process_firstname_step)
