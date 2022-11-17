@@ -16,7 +16,7 @@ mgr = owm.weather_manager()
 mydatabase = mysql.connector.connect(
     host="localhost",
     user="root",
-    passwd="RoleMr87",
+    passwd="",
     port="3306",
     database="telegram"
 )
@@ -61,7 +61,7 @@ def process_weather(message):
     try:
         observation = mgr.weather_at_place(message.text)
         weather = observation.weather
-        temp = weather.temperature("celsius")["temp"]  # Присваиваем переменной значение температуры из таблицы
+        temp = weather.temperature("celsius")["temp"]
         barom = weather.barometric_pressure()
         wind = weather.wind()
         sun = weather.sunset_time(timeformat='date')
